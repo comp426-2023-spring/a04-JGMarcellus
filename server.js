@@ -10,6 +10,8 @@ const app = express();
 var argv = minimist(process.argv.slice(2));
 const PORT = argv.port || 5000;
 
+replacementString = '';
+
 app.get('/app/rps/', function(req, res) {
     res.status(200).send(JSON.stringify(rps()).replace(/\//g, replacementString)).end();
 });
