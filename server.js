@@ -11,27 +11,27 @@ var argv = minimist(process.argv.slice(2));
 const PORT = argv.port || 5000;
 
 app.get('/app/rps/', function(req, res) {
-    res.status(200).send(JSON.stringify(rps())).end();
+    res.status(200).send(JSON.stringify(rps()).replace(/\//g, replacementString)).end();
 });
 
 app.get('/app/rpsls/', function(req, res) {
-    res.status(200).send(JSON.stringify(rpsls())).end();
+    res.status(200).send(JSON.stringify(rpsls()).replace(/\//g, replacementString)).end();
 });
 
 app.get('/app/rps/play', function(req, res) {
-    res.status(200).send(JSON.stringify(rps(req.query.shot))).end();
+    res.status(200).send(JSON.stringify(rps(req.query.shot)).replace(/\//g, replacementString)).end();
 });
 
 app.get('/app/rpsls/play', function(req, res) {
-    res.status(200).send(JSON.stringify(rpsls(req.query.shot))).end();
+    res.status(200).send(JSON.stringify(rpsls(req.query.shot)).replace(/\//g, replacementString)).end();
 });
 
 app.get('/app/rps/play:shot', function(req, res) {
-    res.status(200).send(JSON.stringify(rps(req.params.shot))).end();
+    res.status(200).send(JSON.stringify(rps(req.params.shot)).replace(/\//g, replacementString)).end();
 });
 
 app.get('/app/rpsls/play:shot', function(req, res) {
-    res.status(200).send(JSON.stringify(rpsls(req.params.shot))).end();
+    res.status(200).send(JSON.stringify(rpsls(req.params.shot)).replace(/\//g, replacementString)).end();
 });
 
 app.get("/app", function(req, res) {
