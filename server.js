@@ -47,6 +47,10 @@ app.get("/app/", function(req, res) {
     res.status(200).send("200 OK").end();
 });
 
+app.get("*", function(req, res) {
+    res.status(404).send("404 NOT FOUND").end();
+});
+
 
 
 app.listen(PORT, function(err){
