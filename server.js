@@ -25,11 +25,21 @@ app.get('/app/rpsls/', function(req, res) {
 });
 
 app.get('/app/rps/play', function(req, res) {
-    let string = JSON.stringify(rps(req.body.shot)).replace(/\\/g, replacementString)
+    let string = JSON.stringify(rps(req.query.shot)).replace(/\\/g, replacementString)
     res.status(200).send(string.substring(1, string.length-1)).end();
 });
 
 app.get('/app/rpsls/play', function(req, res) {
+    let string = JSON.stringify(rpsls(req.query.shot)).replace(/\\/g, replacementString)
+    res.status(200).send(string.substring(1, string.length-1)).end();
+});
+
+app.post('/app/rps/play', function(req, res) {
+    let string = JSON.stringify(rps(req.body.shot)).replace(/\\/g, replacementString)
+    res.status(200).send(string.substring(1, string.length-1)).end();
+});
+
+app.post('/app/rpsls/play', function(req, res) {
     let string = JSON.stringify(rpsls(req.body.shot)).replace(/\\/g, replacementString)
     res.status(200).send(string.substring(1, string.length-1)).end();
 });
