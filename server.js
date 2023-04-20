@@ -23,34 +23,31 @@ app.get('/app/rpsls/', function(req, res) {
     res.status(200).send(string.substring(1, string.length-1)).end();
 });
 
-app.get('/app/rps/play', function(req, res) {
+app.get('/app/rps/play/', function(req, res) {
     let string = JSON.stringify(rps(req.query.shot)).replace(/\\/g, replacementString)
     res.status(200).send(string.substring(1, string.length-1)).end();
 });
 
-app.get('/app/rpsls/play', function(req, res) {
+app.get('/app/rpsls/play/', function(req, res) {
     let string = JSON.stringify(rpsls(req.query.shot)).replace(/\\/g, replacementString)
     res.status(200).send(string.substring(1, string.length-1)).end();
 });
 
-app.get('/app/rps/play/:shot', function(req, res) {
+app.get('/app/rps/play/:shot/', function(req, res) {
     let string = JSON.stringify(rps(req.params.shot)).replace(/\\/g, replacementString)
     res.status(200).send(string.substring(1, string.length-1)).end();
 });
 
-app.get('/app/rpsls/play/:shot', function(req, res) {
+app.get('/app/rpsls/play/:shot/', function(req, res) {
     let string = JSON.stringify(rpsls(req.params.shot)).replace(/\\/g, replacementString)
     res.status(200).send(string.substring(1, string.length-1)).end();
 });
 
-app.get("/app", function(req, res) {
+app.get("/app/", function(req, res) {
     res.status(200).send("200 OK").end();
 });
 
 
-app.all('*', (req, res) => {
-    res.status(404).send('404 NOT FOUND').end();
-});
 
 app.listen(PORT, function(err){
     if (err) console.log(err);
